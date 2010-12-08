@@ -10,12 +10,17 @@ Symlink to already fetched git submodules, rather than fetching it on every depl
 
 ## Dependencies
 
-- Capistrano 2 or later ([capify.org]())
+- Capistrano 2 or later ([capify.org](http://capify.org))
 
 ## Usage
 
-All you need to do is install this as a plugin in your application. Next, tell Capistrano fetch submodules before finalizing code update.
+All you need to do is install this as a plugin in your application.
 
+    $ script/plugin install git://github.com/nicck/cached_submodules.git
+
+Next, tell Capistrano fetch submodules before finalizing code update.
+
+    # file: config/deploy.rb
     before "deploy:finalize_update", "cached_submodules:fetch"
 
 Also make sure `git_enable_submodules` var not set or set to `false`.
