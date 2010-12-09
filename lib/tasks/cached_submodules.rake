@@ -54,7 +54,7 @@ namespace :cached_submodules do
           FileUtils.mkdir_p(submodule_dir)
 
           puts "clone #{submodule_url} to #{submodule_dir}"
-          system "git clone -q #{submodule_url} #{submodule_dir}"
+          system "rm -rf #{submodule_dir} && git clone -q #{submodule_url} #{submodule_dir}"
         end
         puts "checkout #{submodule_hash}"
         `cd #{submodule_dir} && git checkout -q #{submodule_hash} && cd -`
