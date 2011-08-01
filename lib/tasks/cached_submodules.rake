@@ -1,7 +1,7 @@
 namespace :cached_submodules do
   desc "Fetch submodules to shared/submodules"
   task :fetch do
-    abort('not found .gitsubmodules file.') if !File.exists?(".gitmodules")
+    abort('not found .gitmodules file.') if !File.exists?(".gitmodules")
 
     # get paths and hashes of not initialized submodules
     git_submodule_status = `git submodule status`
